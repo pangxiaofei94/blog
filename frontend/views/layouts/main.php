@@ -14,69 +14,56 @@ AppAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
-<html lang="<?= Yii::$app->language ?>">
+<html lang="zh-cn">
 <head>
-    <meta charset="<?= Yii::$app->charset ?>">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <?= Html::csrfMetaTags() ?>
-    <title><?= Html::encode($this->title) ?></title>
-    <?php $this->head() ?>
+    <base href="<?=@web ?>" >
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>PHP</title>
+    <meta name="keywords" content="博客,庞小飞,php,php个人博客">
+    <meta name="description" content="庞小飞个人博客">
+    <link href="./css/base.css" rel="stylesheet">
+    <link href="./css/index.css" rel="stylesheet">
+    <script type="text/javascript">
+    try {var urlhash = window.location.hash;if (!urlhash.match("fromapp"))
+    {if ((navigator.userAgent.match(/(iPhone|iPod|Android|ios|iPad)/i)))
+    {window.location="http://m.yangqq.com/";}}}
+    catch(err)
+    {
+    }</script>
+    <meta name="mobile-agent" content="format=xhtml;url=http://m.pangxiaofei.com">
+    <script src="http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=408409"></script>
+    <link rel="stylesheet" href="http://bdimg.share.baidu.com/static/api/css/share_style1_32.css">
 </head>
 <body>
 <?php $this->beginBody() ?>
 
 <div class="wrap">
-    <?php
-    NavBar::begin([
-        'brandLabel' => 'My Company',
-        'brandUrl' => Yii::$app->homeUrl,
-        'options' => [
-            'class' => 'navbar-inverse navbar-fixed-top',
-        ],
-    ]);
-    $menuItems = [
-        ['label' => 'Home', 'url' => ['/site/index']],
-        ['label' => 'About', 'url' => ['/site/about']],
-        ['label' => 'Contact', 'url' => ['/site/contact']],
-    ];
-    if (Yii::$app->user->isGuest) {
-        $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
-        $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
-    } else {
-        $menuItems[] = '<li>'
-            . Html::beginForm(['/site/logout'], 'post')
-            . Html::submitButton(
-                'Logout (' . Yii::$app->user->identity->username . ')',
-                ['class' => 'btn btn-link']
-            )
-            . Html::endForm()
-            . '</li>';
-    }
-    echo Nav::widget([
-        'options' => ['class' => 'navbar-nav navbar-right'],
-        'items' => $menuItems,
-    ]);
-    NavBar::end();
-    ?>
-
+     <header>
+      <div id="logo"><a href="/"></a></div>
+      <nav class="topnav" id="topnav">
+        <a href="#" id="topnav_current">
+            <span>首页</span>
+            <span class="en">Protal</span>
+        </a>
+        </nav>
+    </header>
     <div class="container">
-        <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
-        <?= Alert::widget() ?>
         <?= $content ?>
     </div>
 </div>
-
-<footer class="footer">
-    <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
-
-        <p class="pull-right"><?= Yii::powered() ?></p>
-    </div>
+<footer>
+  <p>Design by DanceSmile <a href="http://www.miitbeian.gov.cn/" target="_blank">蜀ICP备11002373号-1</a> 
+    </p>
 </footer>
 
 <?php $this->endBody() ?>
+<!-- 
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Ff655f558c510211e38805f6b586e6b15' type='text/javascript'%3E%3C/script%3E"));
+</script>
+ -->
+<script src="@web/js/h.js" type="text/javascript"></script>
 </body>
 </html>
 <?php $this->endPage() ?>
